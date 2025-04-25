@@ -1,0 +1,321 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Glacial Indifference', sans-serif;
+  background: radial-gradient(circle at top right, rgba(0, 204, 255, 0.3), rgba(255, 0, 150, 0.3));
+  color: #000;
+  height: 100vh;
+}
+
+/* Controle de páginas */
+.page {
+  display: none;
+  height: 100vh;
+}
+
+.page.active {
+  display: flex;
+}
+
+.container {
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+
+/* ----- Lado esquerdo (Login) ----- */
+.left-side {
+  width: 85%;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 20px;
+}
+
+.logo-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo {
+  width: 60px;
+  height: auto;
+}
+
+.logo-title h1 {
+  text-align: left;
+  font-size: 2rem;
+  line-height: 1.2;
+}
+
+.highlight {
+  color: #ff69b4;
+  font-weight: bold;
+  font-size: 1.6rem;
+}
+
+.main-image {
+  width: 100%;
+  max-width: 500px;
+  border-radius: 10px;
+}
+
+.subtitle {
+  font-size: 1rem;
+  text-align: center;
+  max-width: 90%;
+}
+
+/* ----- Lado direito (Login) ----- */
+.right-side {
+  width: 45%;
+  background: radial-gradient(circle at top right, rgba(0, 204, 255, 0.3), rgba(255, 0, 150, 0.3));
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 30px;
+}
+
+.titulo-treino {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.login-box {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(20px);
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0 0 30px rgba(255, 255, 255, 0.1);
+  width: 100%;
+  max-width: 300px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.input-box {
+  display: flex;
+  align-items: center;
+  border: 2px solid white;
+  border-radius: 30px;
+  padding: 10px;
+  background: transparent;
+}
+
+.input-box input {
+  background: transparent;
+  border: none;
+  outline: none;
+  color: white;
+  width: 100%;
+  padding-left: 10px;
+  font-size: 1rem;
+}
+
+button {
+  margin-top: 10px;
+  background: linear-gradient(to right, black, gray);
+  border: none;
+  padding: 10px;
+  border-radius: 30px;
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  cursor: pointer;
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+button:hover {
+  background: white;
+  color: black;
+}
+
+/* ----- Página Treino do Dia ----- */
+#treino-page {
+  flex-direction: column;
+  width: 100%;
+}
+
+.usuario {
+  font-weight: bold;
+}
+
+.treino-dia {
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.video-thumbnail {
+  position: relative;
+  width: 100%;
+  max-width: 600px;
+}
+
+.video-thumbnail img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+.play-button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 50px;
+  color: rgb(195, 195, 195);
+  background: rgba(0, 0, 0, 0.5);
+  padding: 30px;
+  border-radius: 30px;
+  cursor: pointer;
+}
+
+.usuario-box {
+  display: flex;
+  align-items:flex-end;
+  gap: 10px;
+  padding: 50px;
+  margin-top: -30px;
+}
+
+.usuario-icone {
+  font-size: 24px; /* Tamanho do ícone */
+}
+
+
+.usuario-nome {
+  font-size: 16px;
+  font-weight: bold;
+  color: #b500ac;
+}
+
+.btn-sair {
+  background-color: #d9534f;
+  border: none;
+  color: #fff;
+  padding: 8px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.btn-sair:hover {
+  background-color: #ebb3fe;
+}
+
+/* ===== Cabeçalho personalizado da página de treino ===== */
+
+.header-treino {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 10px;
+  background: radial-gradient(circle at top right, rgba(0, 204, 255, 0.3), rgba(255, 0, 150, 0.3));
+  flex-wrap: wrap;
+}
+/* Título "Treino" + nome da academia (lado esquerdo) */
+
+.titulo-box {
+  display: flex;
+  align-items: center;
+  gap: 1px;
+}
+
+.menu-title {
+  font-size: 34px;
+  font-weight: bold;
+  margin: 0;
+  color: #000;
+}
+
+.academia-nome {
+  font-size: 24px;
+  font-weight: bold;
+  color: #b500ac;
+}
+
+.menu {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  padding: 0;
+}
+
+.menu li {
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.logo-treino {
+  width: 110px;
+  height: auto;
+}
+
+.titulo-textos {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+/*PAGINA DE EXERCICIOS
+Estilos para a descrição dos exercícios */
+.descricao-exercicios {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px;
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  margin-top: 20px;
+}
+
+.tabela-exercicios {
+  overflow-y: scroll;
+  max-height: 400px;
+  width: 100%;
+  max-width: 800px;
+  margin-top: 20px;
+}
+
+.tabela-exercicios table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.tabela-exercicios th,
+.tabela-exercicios td {
+  padding: 10px;
+  border: 1px solid #ddd;
+  text-align: center;
+}
+
+.tabela-exercicios th {
+  background-color: #f1f1f1;
+}
+
+/* Estilo para exibir a descrição ao clicar no ícone de play */
+.descricao-exercicios.active {
+  display: flex;
+}
+
+
+
+
+
+
