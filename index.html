@@ -2,27 +2,26 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Academia Viva a Vida</title>
-  <link rel="stylesheet" href="css/style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Glacial+Indifference&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link href="https://fonts.googleapis.com/css2?family=Glacial+Indifference&display=swap" rel="stylesheet"/>
 </head>
 <body>
 
   <!-- Página de Login -->
   <div id="login-page" class="page active">
     <div class="container">
-      <!-- Lado Esquerdo -->
       <div class="left-side">
         <div class="logo-title">
-          <img src="img.pag/Logo.png" alt="Logo Academia" class="logo">
+          <img src="img.pag/Logo.png" alt="Logo" class="logo" onclick="mostrarTreino()" style="cursor: pointer;">
           <h1>ACADEMIA<br><span class="highlight">Viva a Vida</span></h1>
         </div>
         <img src="img.pag/foto.login.jpg" alt="Imagem de treino" class="main-image">
         <p class="subtitle">Faça do movimento uma parte da sua vida diária com exercícios curtos e fáceis</p>
       </div>
 
-      <!-- Lado Direito -->
       <div class="right-side">
         <h1 class="titulo-treino">Treino</h1>
         <form id="login-form" class="login-box">
@@ -41,49 +40,61 @@
   </div>
 
   <!-- Página Treino do Dia -->
-  <!-- Página Treino do Dia -->
-<div id="treino-page" class="page">
-  <header>
-    <div class="header-treino">
-      <!-- Título e nome da academia (lado esquerdo) -->
-      <div class="titulo-box">
-        <img src="img.pag/Logo.png" alt="Logo Academia" class="logo-treino">
-        <div class="titulo-textos">
-          <h2 class="menu-title">Treino</h2>
-          <span class="academia-nome">Academia Viva a Vida</span>
+  <div id="treino-page" class="page" style="display: none;">
+    <header>
+      <div class="header-treino">
+        <div class="titulo-box">
+          <img src="img.pag/Logo.png" alt="Logo Academia" class="logo-treino" onclick="mostrarTreino()" style="cursor: pointer;">
+          <div class="titulo-textos">
+            <h2 class="menu-title">Treino</h2>
+            <span class="academia-nome">Academia Viva a Vida</span>
+          </div>
+        </div>
+
+        <ul class="menu">
+          <li><a href="#" onclick="mostrarTreino()">Início</a></li>
+          <li class="menu-treino">
+            Treino
+            <ul class="submenu">
+              <li onclick="mostrarFicha()">Ficha</li>
+            </ul>
+          </li>
+          <li>Aulas</li>
+          <li><a href="#" onclick="mostrarQuemSomos()">Quem somos</a></li>
+        </ul>
+
+        <div class="usuario-box">
+          <span class="usuario-icone">👤</span>
+          <span class="usuario-nome">Olá, Raquel</span>
+          <button class="btn-sair" onclick="voltarParaLogin()">Sair</button>
         </div>
       </div>
-      
-  
-      <!-- Menu centralizado -->
-      <ul class="menu">
-        <li>Início</li>
-        <li>Treino</li>
-        <li>Aulas</li>
-        
-        <li>Quem somos</li>
-      </ul>
-  
-      <!-- Usuário (lado direito) -->
-      <div class="usuario-box">
-        <span class="usuario-icone">👤</span>
-        <span class="usuario-nome">Olá, Raquel</span>
-        <button class="btn-sair" onclick="voltarParaLogin()">Sair</button>
+    </header>
+
+    <main class="treino-dia">
+      <div class="video-thumbnail">
+        <img src="img.pag/treinoDoDia.jpg" alt="Capa do vídeo">
+        <div class="play-button" onclick="mostrarDescricaoExercicios()">▶</div>
       </div>
-    </div>
-  </header>
-  
-  <main class="treino-dia">
-    <div class="video-thumbnail">
-      <img src="img.pag/treinoDoDia.jpg" alt="Capa do vídeo">
-      <div class="play-button" onclick="mostrarDescricaoExercicios()">▶</div>
-    </div>
-    <h2>TREINO MEMBROS INFERIORES</h2>
-    <p>O treino de MMII (membros inferiores) fortalece pernas, glúteos e panturrilhas, melhorando força, resistência e estabilidade. <BR>Exercícios como agachamento, leg press e stiff são essenciais. <BR>Além da estética, auxilia na prevenção de lesões e no desempenho esportivo.<BR> O aquecimento e alongamento antes e depois do treino ajudam na recuperação muscular.</p>
-  </main>
-  <div id="descricao-exercicios" class="descricao-exercicios">
-    <h3>Descrição dos Exercícios - Membros Inferiores</h3>
-    <div class="tabela-exercicios">
+      <h2>TREINO MEMBROS INFERIORES</h2>
+      <p>O treino de MMII fortalece pernas, glúteos e panturrilhas. Inclui agachamento, leg press e stiff. Ajuda na força, estética e prevenção de lesões.</p>
+    </main>
+
+    <!-- Ficha Interna -->
+    <section id="ficha" class="pagina" style="display: none;">
+      <div class="card-ficha" style="background-image: url('img.pag/MMII.jpg');">
+        <h2>Ficha A MMII</h2>
+        <span class="play-icon">▶</span>
+      </div><br>
+      <div class="card-ficha" style="background-image: url('img.pag/MMSS.jpg');"><br>
+        <h2>Ficha B MMSS</h2>
+        <span class="play-icon">▶</span>
+      </div>
+    </section>
+
+    <!-- Descrição dos Exercícios -->
+    <div id="descricao-exercicios" class="descricao-exercicios" style="display: none;">
+      <h3>Descrição dos Exercícios - Membros Inferiores</h3>
       <table>
         <thead>
           <tr>
@@ -96,27 +107,101 @@
           <tr>
             <td>Agachamento</td>
             <td>Fortalece quadríceps, glúteos e core.</td>
-            <td>3 séries de 12 repetições</td>
+            <td>3x12</td>
           </tr>
           <tr>
             <td>Leg Press</td>
             <td>Trabalha quadríceps, glúteos e panturrilhas.</td>
-            <td>3 séries de 10 repetições</td>
+            <td>3x10</td>
           </tr>
           <tr>
             <td>Stiff</td>
             <td>Foca nos isquiotibiais e glúteos.</td>
-            <td>3 séries de 12 repetições</td>
+            <td>3x12</td>
           </tr>
         </tbody>
       </table>
     </div>
   </div>
-</div>
 
+  <!-- Página Ficha -->
+  <div id="ficha-page" class="page" style="display: none;">
+    <header class="header-treino">
+      <!-- mesmo header se quiser repetir -->
+    </header>
+    <main class="treino-dia">
+      <h2>Ficha de Treino</h2>
+      <p>Conteúdo completo da ficha separado por grupos musculares.</p>
+    </main>
+  </div>
 
-  <script src="js/app.js">
-    
-  </script>
+  <!-- Página Quem Somos -->
+  <div id="quem-somos" class="page" style="display: none;">
+    <header class="header-treino">
+      <div class="header-treino">
+        <div class="titulo-box">
+          <img src="img.pag/Logo.png" alt="Logo Academia" class="logo-treino" onclick="mostrarTreino()" style="cursor: pointer;">
+          <div class="titulo-textos">
+            <h2 class="menu-title">Quem Somos</h2>
+            <span class="academia-nome">Academia Viva a Vida</span>
+          </div>
+        </div>
+        <ul class="menu">
+          <li><a href="#" onclick="mostrarTreino()">Início</a></li>
+          <li class="menu-treino">
+            Treino
+            <ul class="submenu">
+              <li onclick="mostrarFicha()">Ficha</li>
+            </ul>
+          </li>
+          <li>Aulas</li>
+          <li><a href="#" onclick="mostrarQuemSomos()">Quem somos</a></li>
+        </ul>
+        <div class="usuario-box">
+          <span class="usuario-icone">👤</span>
+          <span class="usuario-nome">Olá, Raquel</span>
+          <button class="btn-sair" onclick="voltarParaLogin()">Sair</button>
+        </div>
+      </div>
+    </header>
+
+    <main class="quemsomos-container">
+      <div class="texto-quemsomos">
+        <h2>Quem Somos</h2>
+        <p>
+          Somos um academia comprometida com a saúde, bem-estar e qualidade de vida dos nossos alunos. Oferecemos um ambiente moderno, com equipamentos de alta qualidade e uma equipe de profissionais capacitados para ajudar você atingir seus objetivos.</p>
+          <br>
+        <h3>Missão</h3>
+        <p>Proporcionar uma experiência completa de saúde e bem-estar, incentivando um estilo de vida ativo por meio da prática de exercícios físicos, sempre com segurança e acompanhamento profissional. </p>
+          <br>
+        <h3>Visão</h3>
+        <p>Ser referência em qualidade e inovação no segmento fitness, oferecendo um espaço motivador e acessível para todos que buscam melhorar sua saúde e desempenho físico.</p>
+          <br>
+        <h3>Valores</h3>
+        <ul>
+          <li> Compromisso com saúde e segurança</li>
+          <li> Profissionalismo e ética</li>
+          <li> Inovação e melhoria contínua</li>
+          <li> Respeito e inclusão</li>
+          <li> Motivação e superação diária</li>
+        </ul>
+      </div>
+
+      <form id="form-contato" class="form-box" action="https://formsubmit.co/thaianye@gmail.com" method="POST">
+        <h2>Dúvidas ou Sugestões</h2>
+        <select name="motivo" required>
+          <option disabled selected>Informe o motivo do contato</option>
+          <option value="Dúvidas">Dúvidas</option>
+          <option value="Sugestão">Sugestão</option>
+        </select>
+        <input type="text" name="nome" placeholder="Seu nome" required>
+        <input type="email" name="email" placeholder="Seu e-mail" required>
+        <textarea name="mensagem" placeholder="Digite sua mensagem..." required></textarea>
+        <button type="submit">Enviar</button>
+      </form>
+    </main>
+  </div>
+  
+  <script src="js/app.js"></script>
 </body>
 </html>

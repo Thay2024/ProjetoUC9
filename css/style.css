@@ -274,6 +274,7 @@ button:hover {
 
 /*PAGINA DE EXERCICIOS
 Estilos para a descrição dos exercícios */
+/* Estilos para a descrição dos exercícios */
 .descricao-exercicios {
   display: none;
   flex-direction: column;
@@ -315,7 +316,139 @@ Estilos para a descrição dos exercícios */
 }
 
 
+.menu-treino {
+  position: relative;
+}
+
+.submenu {
+  display: none; /* Escondido por padrão */
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: radial-gradient(circle at top right, rgba(0, 204, 255, 0.3), rgba(255, 0, 150, 0.3));
+  border: 1px solid #ccc;
+  padding: 5px 0;
+  list-style: none;
+  z-index: 99;
+  min-width: 60px;
+  border-radius: 5px; 
+}
+
+.submenu li {
+  padding: 2px 5px;
+  cursor: pointer;
+  color: #000; /* Texto preto para boa leitura */
+  font-weight: bold;
+}
+
+.submenu li:hover {
+  background: rgba(255, 255, 255, 0.6);
+}
+
+/* Mostrar submenu ao passar o mouse */
+.menu-treino:hover .submenu {
+  display: block;
+}
 
 
+/* Container que envolve os cards */
+#ficha {
+  display: flex; 
+  flex-direction: column; /* Organiza os filhos em uma coluna */
+  align-items: center; /* Centraliza os cards horizontalmente */
+  gap: 10px; /* Espaço entre os cards */
+  width: 100%; /* Ocupa 100% da largura disponível */
+}
 
+/* Estilos dos cards */
+.card-ficha {
+  background-size: cover;
+  background-position: center;
+  border-radius: 12px;
+  height: 250px;
+  width: 100%; /* Ajuste para ocupar toda a largura disponível */
+  max-width: 900px; /* Limita a largura máxima */
+  margin: 0; /* Remove margens internas para garantir espaçamento controlado */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  color: white;
+  font-family: 'Rubik 80s Fade', sans-serif;
+  font-size: 2rem;
+  text-shadow: 2px 2px 5px rgba(0,0,0,0.8);
+}
 
+.play-icon{
+  margin-left: 90%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-40%, 20%);
+  font-size: 30px;
+  color: rgb(195, 195, 195);
+  background: rgba(0, 0, 0, 0.5);
+  padding: 10px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.quemsomos-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 50px;
+  padding: 40px 80px;
+  flex-wrap: wrap;
+}
+
+.texto-quemsomos {
+  flex: 1;
+  max-width: 60%;
+}
+
+.texto-quemsomos h2, .texto-quemsomos h3 {
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.texto-quemsomos ul {
+  list-style: none;
+  padding: 0;
+}
+
+.texto-quemsomos li::before {
+  content: "✅ ";
+  margin-right: 5px;
+}
+
+.form-box {
+  flex: 1;
+  max-width: 35%;
+  background: white;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.form-box input,
+.form-box select,
+.form-box textarea {
+  width: 100%;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-family: inherit;
+}
+
+.form-box button {
+  padding: 10px;
+  background: #000;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
