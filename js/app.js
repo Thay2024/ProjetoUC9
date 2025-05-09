@@ -61,14 +61,23 @@ document.getElementById('login-form').addEventListener('submit', function (e) {
  
 // Função para sair e voltar para o login
 function voltarParaLogin() {
-  document.getElementById('treino-page').classList.remove('active');
-  document.getElementById('login-page').classList.add('active');
- 
-  // Reseta visualização para quando logar de novo
-  document.querySelector('.treino-dia').style.display = 'flex';
-  const desc = document.getElementById('descricao-exercicios');
-  if (desc) desc.style.display = 'none';
+  esconderPaginas(); // Esconde todas as páginas com classe 'page'
+  
+  // Mostra somente o login
+  const loginPage = document.getElementById('login-page');
+  loginPage.classList.add('active');
+  loginPage.style.display = 'block';
+
+  // Esconde qualquer conteúdo interno do treino-page que possa ter ficado visível
+  const treinoDia = document.querySelector('.treino-dia');
+  const descricao = document.getElementById('descricao-exercicios');
+  const ficha = document.getElementById('ficha');
+
+  if (treinoDia) treinoDia.style.display = 'none';
+  if (descricao) descricao.style.display = 'none';
+  if (ficha) ficha.style.display = 'none';
 }
+
  
 // Clica no botão play para ver a descrição dos exercícios
 const playButton = document.querySelector('.play-button');

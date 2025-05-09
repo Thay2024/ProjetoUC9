@@ -77,20 +77,20 @@
         <div class="play-button" onclick="mostrarDescricaoExercicios()">▶</div>
       </div>
       <h2>TREINO MEMBROS INFERIORES</h2>
-      <p>O treino de MMII fortalece pernas, glúteos e panturrilhas. Inclui agachamento, leg press e stiff. Ajuda na força, estética e prevenção de lesões.</p>
+      <p>O treino de MMII (membros inferiores) fortalece pernas, glúteos e panturrilhas, melhorando força, resistência e estabilidade. Exercícios como agachamento, leg press e stiff são essenciais. Além da estética, auxilia na prevenção de lesões e no desempenho esportivo. O aquecimento e alongamento antes e depois do treino ajudam na recuperação muscular.</p>
     </main>
 
     <!-- Ficha Interna -->
-    <section id="ficha" class="pagina" style="display: none;">
-      <div class="card-ficha" style="background-image: url('img.pag/MMII.jpg');">
-        <h2>Ficha A MMII</h2>
-        <span class="play-icon">▶</span>
-      </div><br>
-      <div class="card-ficha" style="background-image: url('img.pag/MMSS.jpg');"><br>
-        <h2>Ficha B MMSS</h2>
-        <span class="play-icon">▶</span>
-      </div>
-    </section>
+<section id="ficha" class="pagina" style="display: none;">
+  <div class="card-ficha" style="background-image: url('img.pag/MMII.jpg');">
+    <h2>Ficha A MMII</h2>
+    <span class="play-icon">▶</span>
+  </div><br>
+  <div class="card-ficha" style="background-image: url('img.pag/MMSS.jpg');">
+    <h2>Ficha B MMSS</h2>
+    <span class="play-icon">▶</span>
+  </div>
+</section>
 
     <!-- Descrição dos Exercícios -->
     <div id="descricao-exercicios" class="descricao-exercicios" style="display: none;">
@@ -151,9 +151,10 @@
           <li class="menu-treino">
             Treino
             <ul class="submenu">
-              <li onclick="mostrarFicha()">Ficha</li>
+              <li onclick="mostrarFicha()">Ficha</li>  <!-- Alterei para usar 'onclick' diretamente -->
             </ul>
           </li>
+          
           <li>Aulas</li>
           <li><a href="#" onclick="mostrarQuemSomos()">Quem somos</a></li>
         </ul>
