@@ -159,7 +159,7 @@
         <h2 class="ficha-titulo">Ficha MMSS</h2> </div>
 
     <div class="treino-dia-content">
-        <h3 class="secao-titulo">Treino de MMSS do Dia</h3> 
+        <h3 class="secao-titulo">Treino do Dia</h3> 
         <div class="exercicios-list">
             <div class="exercicio-card">
                 <h4>Supino Reto com Barra</h4>
@@ -205,6 +205,148 @@
             </div>
     </div>
 </div>
+  </div>
+  </main>
+  </div>
+
+
+  <div id="indicadores-page" class="page" style="display: none;">
+    <header class="header-treino">
+        <div class="header-treino">
+            <div class="titulo-box">
+                <img src="img.pag/Logo.png" alt="Logo Academia" class="logo-treino" onclick="mostrarTreino()" style="cursor: pointer;">
+                <div class="titulo-textos">
+                    <h2 class="menu-title">Treino</h2> <span class="academia-nome">Academia Viva a Vida</span>
+                </div>
+            </div>
+            <ul class="menu">
+                <li><a href="#" onclick="mostrarTreino()">Início</a></li>
+                <li class="menu-treino">
+                    Treino
+                    <ul class="submenu">
+                        <li><a href="#" onclick="mostrarFicha()">Ficha</a></li>
+                    </ul>
+                </li>
+                <li><a href="#" onclick="mostrarAulas()">Aulas</a></li>
+                <li><a href="#" onclick="mostrarIndicadores()">Indicadores</a></li>
+                <li><a href="#" onclick="mostrarQuemSomos()">Quem somos</a></li>
+            </ul>
+            <div class="usuario-box">
+                <span class="usuario-icone">👤</span>
+                <span class="usuario-nome">Olá, Raquel</span>
+                <button class="btn-sair" onclick="voltarParaLogin()">Sair</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="indicadores-main">
+        <div class="indicadores-grid">
+            <div class="card-indicador">
+                <h3>CALORIAS GASTAS</h3>
+                <div class="circulo-progressao">
+                    <div class="inner-circle">200 KCAL</div>
+                    <svg width="160" height="160" viewBox="0 0 160 160">
+                        <circle class="circle-bg" cx="80" cy="80" r="70"></circle>
+                        <circle class="circle-progress" cx="80" cy="80" r="70"></circle>
+                    </svg>
+                </div>
+            </div>
+
+            <div class="card-indicador">
+                <h3>QUANTIDADE DE PASSOS</h3>
+                <div class="circulo-progressao">
+                    <div class="inner-circle">300</div>
+                    <svg width="160" height="160" viewBox="0 0 160 160">
+                        <circle class="circle-bg" cx="80" cy="80" r="70"></circle>
+                        <circle class="circle-progress" cx="80" cy="80" r="70" style="stroke-dasharray: 219.9; stroke-dashoffset: calc(219.9 - (219.9 * 0.6)); stroke: #ff69b4;"></circle>
+                    </svg>
+                </div>
+            </div>
+
+            <div class="card-indicador">
+                <h3>CONSUMO DE ÁGUA</h3>
+                <div class="medidor-agua">
+                    <div class="nivel-agua"></div>
+                    <span class="agua-ml">500ML</span>
+                </div>
+                <div class="agua-labels">
+                    <span>0 L</span>
+                    <span>2 L</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="grafico-peso">
+            <div class="legenda-grafico">
+                <span class="legenda-item"><span class="cor-legenda inicio"></span>Início: 15 Dias</span>
+                <span class="legenda-item"><span class="cor-legenda final"></span>Final: 15 Dias</span>
+            </div>
+            <div class="barras-peso">
+                <div class="barra-coluna">
+                    <div class="barra" style="height: 80%;"></div><span class="valor">80</span>
+                    <span class="mes">Setembro</span>
+                </div>
+                <div class="barra-coluna">
+                    <div class="barra" style="height: 77%;"></div><span class="valor">77</span>
+                    <span class="mes">Outubro</span>
+                </div>
+                <div class="barra-coluna">
+                    <div class="barra" style="height: 79%;"></div><span class="valor">79</span>
+                    <span class="mes">Outubro</span>
+                </div>
+                <div class="barra-coluna">
+                    <div class="barra" style="height: 75%;"></div><span class="valor">75</span>
+                    <span class="mes">Novembro</span>
+                </div>
+                <div class="barra-coluna">
+                    <div class="barra" style="height: 73%;"></div><span class="valor">73</span>
+                    <span class="mes">Novembro</span>
+                </div>
+                <div class="barra-coluna">
+                    <div class="barra" style="height: 71%;"></div><span class="valor">71</span>
+                    <span class="mes">Dezembro</span>
+                </div>
+                <div class="barra-coluna">
+                    <div class="barra" style="height: 69%;"></div><span class="valor">69</span>
+                    <span class="mes">Dezembro</span>
+                </div>
+                <div class="barra-coluna">
+                    <div class="barra" style="height: 67%;"></div><span class="valor">67</span>
+                    <span class="mes">Janeiro</span>
+                </div>
+                <div class="barra-coluna">
+                    <div class="barra" style="height: 65%;"></div><span class="valor">65</span>
+                    <span class="mes">Janeiro</span>
+                </div>
+                <div class="barra-coluna">
+                    <div class="barra" style="height: 63%;"></div><span class="valor">63</span>
+                    <span class="mes">Fevereiro</span>
+                </div>
+                <div class="barra-coluna">
+                    <div class="barra" style="height: 60%;"></div><span class="valor">60</span>
+                    <span class="mes">Fevereiro</span>
+                </div>
+                <div class="barra-coluna">
+                    <div class="barra" style="height: 58%;"></div><span class="valor">58</span>
+                    <span class="mes">Março</span>
+                </div>
+            </div>
+            <div class="eixo-x-label">Meu Peso</div>
+            <div class="eixo-y-label">
+                <span class="label-peso">100</span>
+                <span class="label-peso">80</span>
+                <span class="label-peso">60</span>
+                <span class="label-peso">40</span>
+                <span class="label-peso">20</span>
+                <span class="label-peso">0</span>
+            </div>
+        </div>
+    </main>
+</div>
+
+
+
+
 
   <!-- Página Ficha -->
   <div id="ficha-page" class="page" style="display: none;">
@@ -377,6 +519,80 @@
                 <span class="dia-mes">31</span>
                 <span class="dia-mes placeholder"></span>
                 <span class="dia-mes placeholder"></span>
+            </div>
+        </div>
+    </main>
+</div>
+
+<div id="perfil-page" class="page" style="display: none;">
+    <header class="header-treino">
+        <div class="header-treino">
+            <div class="titulo-box">
+                <img src="img.pag/Logo.png" alt="Logo Academia" class="logo-treino" onclick="mostrarTreino()" style="cursor: pointer;">
+                <div class="titulo-textos">
+                    <h2 class="menu-title">Treino</h2> <span class="academia-nome">Academia Viva a Vida</span>
+                </div>
+            </div>
+            <ul class="menu">
+                <li><a href="#" onclick="mostrarTreino()">Início</a></li>
+                <li class="menu-treino">
+                    Treino
+                    <ul class="submenu">
+                        <li><a href="#" onclick="mostrarFicha()">Ficha</a></li>
+                    </ul>
+                </li>
+                <li><a href="#" onclick="mostrarAulas()">Aulas</a></li>
+                <li><a href="#" onclick="mostrarIndicadores()">Indicadores</a></li>
+                <li><a href="#" onclick="mostrarQuemSomos()">Quem somos</a></li>
+            </ul>
+            <div class="usuario-box">
+                <span class="usuario-icone" onclick="mostrarPerfil()" style="cursor: pointer;">👤</span> <span class="usuario-nome">Olá, Raquel</span>
+                <button class="btn-sair" onclick="voltarParaLogin()">Sair</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="perfil-main">
+        <div class="perfil-header">
+            <h1>EDITAR PERFIL</h1>
+        </div>
+
+        <div class="perfil-content">
+            <div class="perfil-secao">
+                <div class="perfil-avatar">
+                    <img src="img.pag/avatar-placeholder.png" alt="Foto de Perfil" class="avatar">
+                </div>
+                <button class="btn-perfil">ESCOLHER FOTO</button>
+                <button class="btn-perfil remover">REMOVER FOTO</button>
+
+                <div class="card-perfil info-aluno">
+                    <h2>INFORMAÇÕES DO ALUNO</h2>
+                    <p><strong>Matrícula:</strong> 012789</p>
+                    <p><strong>Situação:</strong> Ativo</p>
+                    <p><strong>Usuário:</strong> 12789</p>
+                    <p><strong>Senha:</strong> ********</p>
+                </div>
+            </div>
+
+            <div class="perfil-secao">
+                <div class="card-perfil dados-cadastrais">
+                    <h2>DADOS CADASTRAIS</h2>
+                    <p><strong>Nome:</strong> Raquel</p>
+                    <p><strong>Data de Nasc.:</strong> xx/xx/xxxx</p>
+                    <p><strong>Telefone:</strong> (xx) xxxxx-xxxx</p>
+                    <p><strong>Endereço:</strong> xxxxxxxxxxxxx</p>
+                    <p><strong>Email:</strong> xxxxx@xxxxxxx</p>
+                    <p><strong>Sexo:</strong> Feminino</p>
+                </div>
+            </div>
+
+            <div class="perfil-secao">
+                <div class="card-perfil informacoes-corporais">
+                    <h2>INFORMAÇÕES CORPORAIS</h2>
+                    <p><strong>Peso:</strong> 50,0</p>
+                    <p><strong>Altura:</strong> 1,60</p>
+                    <p><strong>Treinos por Semana:</strong> 5</p>
+                </div>
             </div>
         </div>
     </main>

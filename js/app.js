@@ -15,12 +15,46 @@ function esconderPaginas() {
   const ficha = document.getElementById('ficha');
   const descMmii = document.getElementById('descricao-exercicios');
   const descMmss = document.getElementById('descricao-exercicios-mmss');
+  const indicadoresPage = document.getElementById('indicadores-page');
+  const perfilPage = document.getElementById('perfil-page'); 
 
   if (treinoDia) treinoDia.style.display = 'none';
   if (ficha) ficha.style.display = 'none';
   if (descMmii) descMmii.style.display = 'none';
   if (descMmss) descMmss.style.display = 'none';
+  if (indicadoresPage) indicadoresPage.style.display = 'none'; 
+  if (perfilPage) perfilPage.style.display = 'none'; 
 }
+
+function mostrarIndicadores() {
+    esconderPaginas(); // Esconde todas as outras páginas e sub-seções
+    const indicadoresPage = document.getElementById('indicadores-page');
+    if (indicadoresPage) {
+        indicadoresPage.classList.add('active');
+        indicadoresPage.style.display = 'flex'; // Use flex para o layout da página
+    }
+}
+
+function mostrarPerfil() {
+    esconderPaginas(); // Esconde todas as outras páginas e sub-seções
+    const perfilPage = document.getElementById('perfil-page');
+    if (perfilPage) {
+        perfilPage.classList.add('active');
+        perfilPage.style.display = 'flex'; // Use flex para o layout da página
+    }
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    // ... seus outros event listeners existentes ...
+
+    // Seleciona TODOS os elementos com a classe 'usuario-icone'
+    const usuarioIcones = document.querySelectorAll('.usuario-icone');
+
+    // Itera sobre cada um deles e adiciona o event listener
+    usuarioIcones.forEach(icone => {
+        icone.addEventListener('click', mostrarPerfil);
+    });
+});
 
 function mostrarTreino() {
   esconderPaginas();

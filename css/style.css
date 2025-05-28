@@ -755,3 +755,569 @@ Estilos para a descrição dos exercícios */
       align-items: center;
   }
 }
+
+
+/* ==================================== */
+/* ===== Página de Indicadores ====== */
+/* ==================================== */
+
+#indicadores-page {
+    flex-direction: column; /* Para empilhar o header e o main */
+    width: 100%;
+    /* O background gradient já está no body, então a página herda */
+    background: #1a1a1a; /* Fundo escuro conforme a imagem */
+    color: #000000; /* Texto claro */
+}
+
+.indicadores-main {
+    flex-grow: 1; /* Ocupa o espaço restante */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px;
+    gap: 40px; /* Espaço entre a grade de cards e o gráfico de peso */
+    width: 100%;
+    overflow-y: auto; /* Para rolagem se o conteúdo for muito grande */
+}
+
+.indicadores-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* 3 colunas flexíveis */
+    gap: 30px;
+    width: 100%;
+    max-width: 1200px; /* Limita a largura da grade */
+    justify-content: center; /* Centraliza os itens na grade */
+}
+
+.card-indicador {
+    background: rgba(40, 40, 40, 0.7); /* Fundo escuro semi-transparente para os cards */
+    backdrop-filter: blur(8px); /* Efeito de blur */
+    border-radius: 15px;
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.08); /* Borda sutil */
+    text-align: center;
+}
+
+.card-indicador h3 {
+    font-size: 1.3rem;
+    color: #f0f0f0;
+    margin-bottom: 5px;
+    letter-spacing: 0.5px;
+}
+
+/* Estilos para os círculos de progresso (Calorias e Passos) */
+.circulo-progressao {
+    position: relative;
+    width: 160px; /* Largura do SVG */
+    height: 160px; /* Altura do SVG */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.circulo-progressao svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: rotate(-90deg); /* Começa o preenchimento no topo */
+}
+
+.circulo-progressao .circle-bg {
+    fill: none;
+    stroke: rgba(255, 255, 255, 0.1); /* Cor de fundo do círculo */
+    stroke-width: 15;
+}
+
+.circulo-progressao .circle-progress {
+    fill: none;
+    stroke: #8a2be2; /* Cor de progresso para Calorie/KCAL - Roxo */
+    stroke-width: 15;
+    stroke-linecap: round; /* Pontas arredondadas */
+    transition: stroke-dashoffset 0.5s ease-in-out;
+    /* Para 200 KCAL (Exemplo: 50% de 400 KCAL total) */
+    /* Circunferência = 2 * PI * r = 2 * 3.14159 * 70 = 439.82 -> usaremos 440 para simplificar
+       50% de 440 = 220. Então stroke-dasharray: 440; stroke-dashoffset: 220; */
+    stroke-dasharray: 440;
+    stroke-dashoffset: 220; /* 50% de preenchimento para 200 KCAL */
+}
+
+/* Ajuste específico para o círculo de Passos (cor diferente) */
+.card-indicador:nth-child(2) .circle-progress {
+    stroke: #ff69b4; /* Cor de progresso para Passos - Rosa */
+    stroke-dashoffset: calc(440 - (440 * (300 / 1000))); /* Exemplo: 300 passos de 1000 total */
+}
+
+.circulo-progressao .inner-circle {
+    position: absolute;
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #f0f0f0;
+    z-index: 1; /* Garante que o texto fique acima do SVG */
+}
+
+/* Estilos para o medidor de água */
+.medidor-agua {
+    width: 80px;
+    height: 180px;
+    background: rgba(255, 255, 255, 0.1); /* Fundo do medidor */
+    border-radius: 40px;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    position: relative;
+    overflow: hidden; /* Importante para esconder o nível de água que ultrapassa */
+    display: flex;
+    justify-content: center;
+    align-items: flex-end; /* Nível de água começa de baixo */
+    margin-bottom: 10px;
+}
+
+.medidor-agua .nivel-agua {
+    width: 100%;
+    height: 25%; /* Exemplo: 25% preenchido para 500ml de 2L */
+    background: linear-gradient(to top, #5bc0de, #007bff); /* Gradiente azul da água */
+    border-radius: 40px 40px 0 0; /* Arredonda só em cima */
+    transition: height 0.5s ease-in-out;
+}
+
+.medidor-agua .agua-ml {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #f0f0f0; /* Cor do texto no medidor */
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+    z-index: 2; /* Acima do nível da água */
+}
+
+.agua-labels {
+    display: flex;
+    justify-content: space-between;
+    width: 100px;
+    font-size: 0.9rem;
+    color: #f0f0f0;
+}
+
+/* Estilos para o gráfico de peso (barras) */
+.grafico-peso {
+    background: rgba(40, 40, 40, 0.7);
+    backdrop-filter: blur(8px);
+    border-radius: 15px;
+    padding: 30px;
+    width: 100%;
+    max-width: 1200px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative; /* Para posicionamento dos eixos */
+}
+
+.legenda-grafico {
+    display: flex;
+    gap: 25px;
+    margin-bottom: 30px;
+    align-self: flex-start; /* Alinha a legenda à esquerda dentro do container */
+}
+
+.legenda-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 1rem;
+    color: #f0f0f0;
+}
+
+.cor-legenda {
+    width: 18px;
+    height: 18px;
+    border-radius: 4px;
+}
+
+.cor-legenda.inicio {
+    background-color: #8a2be2; /* Roxo */
+}
+
+.cor-legenda.final {
+    background-color: #ff69b4; /* Rosa */
+}
+
+.barras-peso {
+    display: flex;
+    align-items: flex-end; /* Alinha as barras pela base */
+    gap: 45px; /* Espaço entre as barras */
+    width: 100%;
+    height: 250px; /* Altura do espaço do gráfico */
+    border-bottom: 2px solid rgba(255, 255, 255, 0.2); /* Eixo X */
+    border-left: 2px solid rgba(255, 255, 255, 0.2); /* Eixo Y */
+    padding-left: 50px; /* Espaço para o eixo Y */
+    padding-bottom: 20px; /* Espaço para o eixo X */
+    position: relative;
+    overflow-x: auto; /* Permite rolagem horizontal se muitas barras */
+    padding-right: 20px;
+}
+
+.barra-coluna {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 50px; /* Largura de cada barra */
+    flex-shrink: 0; /* Não encolhe as barras */
+    position: relative;
+    height: 100%; /* Ocupa a altura total do barras-peso */
+    justify-content: flex-end; /* Alinha o conteúdo da coluna à base */
+}
+
+.barra {
+    width: 100%;
+    background: linear-gradient(to top, #8a2be2, #ff69b4); /* Gradiente das barras */
+    border-radius: 5px 5px 0 0; /* Arredonda só o topo */
+    transition: height 0.3s ease;
+    min-height: 5px; /* Altura mínima para barras muito pequenas */
+}
+
+.barra-coluna .valor {
+    margin-top: 5px;
+    font-size: 0.9rem;
+    color: #f0f0f0;
+    font-weight: bold;
+}
+
+.barra-coluna .mes {
+    position: absolute;
+    bottom: -25px; /* Posição abaixo do eixo X */
+    font-size: 0.8rem;
+    color: #b0b0b0;
+    white-space: nowrap; /* Evita que o nome do mês quebre */
+}
+
+.eixo-x-label {
+    position: absolute;
+    bottom: 0px; /* Ajuste conforme a distância do eixo X */
+    right: 50%; /* Centraliza */
+    transform: translateX(50%);
+    font-size: 1rem;
+    color: #f0f0f0;
+    font-weight: bold;
+    margin-top: 10px; /* Espaço do eixo */
+    padding-bottom: 5px;
+}
+
+.eixo-y-label {
+    position: absolute;
+    left: 10px; /* Posição do eixo Y */
+    height: calc(100% - 70px); /* Altura do eixo Y (desconsiderando padding) */
+    display: flex;
+    flex-direction: column-reverse; /* Para alinhar labels de baixo para cima */
+    justify-content: space-between;
+    align-items: flex-end;
+    font-size: 0.8rem;
+    color: #b0b0b0;
+    padding: 20px 0; /* Ajuste para o padding do barras-peso */
+}
+.eixo-y-label .label-peso {
+    margin-right: 5px;
+}
+
+
+/* Responsividade para a página de indicadores */
+@media (max-width: 992px) {
+    .indicadores-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px;
+    }
+    .card-indicador {
+        padding: 20px;
+    }
+    .card-indicador h3 {
+        font-size: 1.2rem;
+    }
+    .circulo-progressao {
+        width: 140px;
+        height: 140px;
+    }
+    .circulo-progressao svg {
+        width: 140px;
+        height: 140px;
+    }
+    .circulo-progressao .circle-bg, .circulo-progressao .circle-progress {
+        r: 60; /* Raio menor */
+        stroke-width: 12;
+    }
+    .circulo-progressao .inner-circle {
+        font-size: 1.5rem;
+    }
+    .medidor-agua {
+        width: 70px;
+        height: 160px;
+    }
+    .grafico-peso {
+        padding: 20px;
+    }
+    .barras-peso {
+        gap: 10px;
+        padding-left: 40px;
+    }
+    .barra-coluna {
+        width: 35px;
+    }
+}
+
+@media (max-width: 768px) {
+    .indicadores-main {
+        padding: 20px;
+        gap: 30px;
+    }
+    .indicadores-grid {
+        grid-template-columns: 1fr; /* Uma coluna em telas menores */
+        max-width: 400px; /* Limita a largura para cards em coluna */
+    }
+    .card-indicador {
+        width: 100%;
+    }
+    .legenda-grafico {
+        flex-direction: column;
+        align-self: center;
+        gap: 10px;
+        margin-bottom: 20px;
+    }
+    .eixo-y-label {
+        left: 5px;
+        font-size: 0.7rem;
+    }
+    .barra-coluna .mes {
+        font-size: 0.7rem;
+        bottom: -20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .card-indicador h3 {
+        font-size: 1.1rem;
+    }
+    .circulo-progressao {
+        width: 120px;
+        height: 120px;
+    }
+    .circulo-progressao svg {
+        width: 120px;
+        height: 120px;
+    }
+    .circulo-progressao .circle-bg, .circulo-progressao .circle-progress {
+        r: 50; /* Raio ainda menor */
+        stroke-width: 10;
+    }
+    .circulo-progressao .inner-circle {
+        font-size: 1.3rem;
+    }
+    .medidor-agua {
+        width: 60px;
+        height: 140px;
+    }
+    .agua-labels {
+        width: 80px;
+    }
+    .grafico-peso {
+        padding: 15px;
+    }
+    .barras-peso {
+        padding-left: 30px;
+    }
+    .barra-coluna {
+        width: 30px;
+    }
+}
+
+/* ==================================== */
+/* ===== Página Editar Perfil ======= */
+/* ==================================== */
+
+#perfil-page {
+    flex-direction: column; /* Para empilhar o header e o main */
+    width: 100%;
+    /* O background gradient do body é mantido */
+    background: #1a1a1a; /* Fundo escuro como nas outras páginas de conteúdo */
+    color: #000000; /* Texto claro */
+}
+
+.perfil-main {
+    flex-grow: 1; /* Ocupa o espaço restante */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px;
+    gap: 30px; /* Espaço entre o cabeçalho e o conteúdo principal */
+    width: 100%;
+    overflow-y: auto; /* Para rolagem se o conteúdo for muito grande */
+}
+
+.perfil-header {
+    background: rgba(40, 40, 40, 0.7);
+    backdrop-filter: blur(8px);
+    border-radius: 15px;
+    padding: 20px 40px;
+    width: 100%;
+    max-width: 900px; /* Largura máxima para o cabeçalho */
+    text-align: center;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.perfil-header h1 {
+    font-size: 2.2rem;
+    color: #ff69b4; /* Cor de destaque rosa */
+    letter-spacing: 2px;
+    text-shadow: 1px 1px 5px rgba(255, 105, 180, 0.4);
+    margin: 0;
+}
+
+.perfil-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr; /* Três colunas por padrão */
+    gap: 30px;
+    width: 100%;
+    max-width: 1000px; /* Largura máxima para o grid de conteúdo */
+}
+
+.perfil-secao {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centraliza o conteúdo da seção */
+    gap: 20px;
+}
+
+.perfil-avatar {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    border: 3px solid #8a2be2; /* Borda roxa do avatar */
+    overflow: hidden; /* Garante que a imagem não vaze */
+}
+
+.avatar {
+    width: 90%; /* Ajusta o tamanho do ícone/imagem dentro do círculo */
+    height: 90%;
+    object-fit: cover; /* Garante que a imagem preencha sem distorcer */
+    border-radius: 50%; /* Mantém a imagem circular */
+}
+
+.btn-perfil {
+    background: linear-gradient(to right, #8a2be2, #ff69b4); /* Gradiente nos botões */
+    border: none;
+    padding: 10px 20px;
+    border-radius: 25px;
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 0.9rem;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    width: 180px; /* Largura fixa para os botões */
+}
+
+.btn-perfil:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.btn-perfil.remover {
+    background: linear-gradient(to right, #d9534f, #c74c4f); /* Cor diferente para remover */
+}
+
+.card-perfil {
+    background: rgba(40, 40, 40, 0.7);
+    backdrop-filter: blur(8px);
+    border-radius: 15px;
+    padding: 25px;
+    width: 100%;
+    max-width: 300px; /* Limita a largura dos cards internos */
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    text-align: left; /* Alinha o texto dentro do card */
+}
+
+.card-perfil h2 {
+    font-size: 1.3rem;
+    color: #ff69b4; /* Cor de destaque para títulos dos cards */
+    margin-bottom: 15px;
+    border-bottom: 1px dashed rgba(255, 255, 255, 0.2);
+    padding-bottom: 10px;
+    text-align: center;
+}
+
+.card-perfil p {
+    font-size: 1rem;
+    color: #f0f0f0;
+    line-height: 1.5;
+}
+
+.card-perfil p strong {
+    color: #8a2be2; /* Cor de destaque para as chaves (ex: "Nome:") */
+    margin-right: 5px;
+}
+
+/* Responsividade para a página de perfil */
+@media (max-width: 992px) {
+    .perfil-content {
+        grid-template-columns: 1fr; /* Uma coluna em telas menores */
+        max-width: 500px; /* Limita a largura para a coluna única */
+    }
+    .perfil-secao {
+        width: 100%; /* Ocupa a largura total na coluna única */
+        align-items: center; /* Centraliza os itens da seção */
+    }
+    .perfil-header h1 {
+        font-size: 1.8rem;
+    }
+    .card-perfil {
+        max-width: 400px; /* Aumenta um pouco a largura dos cards em coluna */
+    }
+}
+
+@media (max-width: 576px) {
+    .perfil-main {
+        padding: 20px;
+        gap: 20px;
+    }
+    .perfil-header {
+        padding: 15px 20px;
+    }
+    .perfil-header h1 {
+        font-size: 1.5rem;
+    }
+    .perfil-avatar {
+        width: 120px;
+        height: 120px;
+    }
+    .btn-perfil {
+        padding: 8px 15px;
+        font-size: 0.8rem;
+        width: 160px;
+    }
+    .card-perfil {
+        padding: 20px;
+        gap: 10px;
+    }
+    .card-perfil h2 {
+        font-size: 1.1rem;
+        margin-bottom: 10px;
+    }
+    .card-perfil p {
+        font-size: 0.9rem;
+    }
+}
