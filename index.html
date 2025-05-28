@@ -56,11 +56,13 @@
           <li class="menu-treino">
             Treino
             <ul class="submenu">
-              <li onclick="mostrarFicha()">Ficha</li>
+              <li> <a href="#" onclick="mostrarFicha()">Ficha</a></li>
             </ul>
           </li>
-          <li>Aulas</li>
+          <li><a href="#" onclick="mostrarAulas()">Aulas</a></li>
+          <li><a href="#" onclick="mostrarIndicadores()">Indicadores</a></li>
           <li><a href="#" onclick="mostrarQuemSomos()">Quem somos</a></li>
+          
         </ul>
 
         <div class="usuario-box">
@@ -81,58 +83,132 @@
     </main>
 
     <!-- Ficha Interna -->
-<section id="ficha" class="pagina" style="display: none;">
+<section id="ficha" class="page" style="display: none;">
   <div class="card-ficha" style="background-image: url('img.pag/MMII.jpg');">
-    <h2>Ficha A MMII</h2>
-    <span class="play-icon">▶</span>
+    <h2>Ficha A MMII <i class="fas fa-play play-icon" id="play-mmii"></i></h2>
+   
   </div><br>
-  <div class="card-ficha" style="background-image: url('img.pag/MMSS.jpg');">
-    <h2>Ficha B MMSS</h2>
-    <span class="play-icon">▶</span>
-  </div>
+  <div id="card-mmss" class="card-ficha" style="background-image: url('img.pag/MMSS.jpg'); cursor: pointer;">
+  <h2>Ficha B MMSS <i class="fas fa-play play-icon" id="play-mmss"></i></i></h2>
+</div>
+
 </section>
 
     <!-- Descrição dos Exercícios -->
-    <div id="descricao-exercicios" class="descricao-exercicios" style="display: none;">
-      <h3>Descrição dos Exercícios - Membros Inferiores</h3>
-      <table>
-        <thead>
-          <tr>
-            <th>Exercício</th>
-            <th>Descrição</th>
-            <th>Repetições</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Agachamento</td>
-            <td>Fortalece quadríceps, glúteos e core.</td>
-            <td>3x12</td>
-          </tr>
-          <tr>
-            <td>Leg Press</td>
-            <td>Trabalha quadríceps, glúteos e panturrilhas.</td>
-            <td>3x10</td>
-          </tr>
-          <tr>
-            <td>Stiff</td>
-            <td>Foca nos isquiotibiais e glúteos.</td>
-            <td>3x12</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
+    <div id="descricao-exercicios" class="descricao-exercicios page" style="display: none;">
+      <div class="ficha-header-bg">
+          <h2 class="ficha-titulo">Ficha MMII</h2>
+          </div>
+
+      <div class="treino-dia-content"> <h3 class="secao-titulo">Treino do Dia</h3>
+
+          <div class="exercicios-list">
+              <div class="exercicio-card">
+                  <h4>Agachamento</h4>
+                  <div class="series">
+                      <p>1 - SEQUÊNCIA DE 10 <input type="checkbox"></p>
+                      <p>2 - SEQUÊNCIA DE 10 <input type="checkbox"></p>
+                      <p>3 - SEQUÊNCIA DE 10 <input type="checkbox"></p>
+                  </div>
+              </div>
+
+              <div class="exercicio-card">
+                  <h4>Leg Press</h4>
+                  <div class="series">
+                      <p>1 - SEQUÊNCIA DE 10 <input type="checkbox"></p>
+                      <p>2 - SEQUÊNCIA DE 10 <input type="checkbox"></p>
+                      <p>3 - SEQUÊNCIA DE 10 <input type="checkbox"></p>
+                  </div>
+              </div>
+
+              <div class="exercicio-card">
+                  <h4>Stiff</h4>
+                  <div class="series">
+                      <p>1 - SEQUÊNCIA DE 10 <input type="checkbox"></p>
+                      <p>2 - SEQUÊNCIA DE 10 <input type="checkbox"></p>
+                      <p>3 - SEQUÊNCIA DE 10 <input type="checkbox"></p>
+                  </div>
+              </div>
+
+              <div class="exercicio-card">
+                  <h4>Cadeira Extensora</h4>
+                  <div class="series">
+                      <p>1 - SEQUÊNCIA DE 10 <input type="checkbox"></p>
+                      <p>2 - SEQUÊNCIA DE 10 <input type="checkbox"></p>
+                      <p>3 - SEQUÊNCIA DE 10 <input type="checkbox"></p>
+                      <p>4 - SEQUÊNCIA DE 10 <input type="checkbox"></p>
+                  </div>
+              </div>
+
+              <div class="exercicio-card">
+                  <h4>Cadeira Flexora</h4>
+                  <div class="series">
+                      <p>1 - SEQUÊNCIA DE 10 <input type="checkbox"></p>
+                      <p>2 - SEQUÊNCIA DE 10 <input type="checkbox"></p>
+                      <p>3 - SEQUÊNCIA DE 10 <input type="checkbox"></p>
+                      <p>4 - SEQUÊNCIA DE 10 <input type="checkbox"></p>
+                  </div>
+              </div>
+              </div>
+      </div>
   </div>
+  </div>
+
+  <div id="descricao-exercicios-mmss" class="descricao-exercicios page" style="display: none;">
+      <div class="ficha-header-bg">
+        <h2 class="ficha-titulo">Ficha MMSS</h2> </div>
+
+    <div class="treino-dia-content">
+        <h3 class="secao-titulo">Treino de MMSS do Dia</h3> 
+        <div class="exercicios-list">
+            <div class="exercicio-card">
+                <h4>Supino Reto com Barra</h4>
+                <div class="series">
+                    <p>4 séries de 8 repetições <input type="checkbox"></p>
+                    <p>4 séries de 8 repetições <input type="checkbox"></p>
+                    <p>4 séries de 8 repetições <input type="checkbox"></p>
+                    <p>4 séries de 8 repetições <input type="checkbox"></p>
+                </div>
+            </div>
+            <div class="exercicio-card">
+                <h4>Remada Curvada</h4>
+                <div class="series">
+                    <p>3 séries de 10 repetições <input type="checkbox"></p>
+                    <p>3 séries de 10 repetições <input type="checkbox"></p>
+                    <p>3 séries de 10 repetições <input type="checkbox"></p>
+                </div>
+            </div>
+            <div class="exercicio-card">
+                <h4>Desenvolvimento de Ombro</h4>
+                <div class="series">
+                    <p>3 séries de 12 repetições <input type="checkbox"></p>
+                    <p>3 séries de 12 repetições <input type="checkbox"></p>
+                    <p>3 séries de 12 repetições <input type="checkbox"></p>
+                </div>
+            </div>
+            <div class="exercicio-card">
+                <h4>Rosca Direta (Bíceps)</h4>
+                <div class="series">
+                    <p>3 séries de 10 repetições <input type="checkbox"></p>
+                    <p>3 séries de 10 repetições <input type="checkbox"></p>
+                    <p>3 séries de 10 repetições <input type="checkbox"></p>
+                </div>
+            </div>
+            <div class="exercicio-card">
+                <h4>Tríceps Corda no Pulley</h4>
+                <div class="series">
+                    <p>3 séries de 12 repetições <input type="checkbox"></p>
+                    <p>3 séries de 12 repetições <input type="checkbox"></p>
+                    <p>3 séries de 12 repetições <input type="checkbox"></p>
+                </div>
+            </div>
+            </div>
+    </div>
+</div>
 
   <!-- Página Ficha -->
   <div id="ficha-page" class="page" style="display: none;">
-    <header class="header-treino">
-      <!-- mesmo header se quiser repetir -->
-    </header>
-    <main class="treino-dia">
-      <h2>Ficha de Treino</h2>
-      <p>Conteúdo completo da ficha separado por grupos musculares.</p>
-    </main>
+    
   </div>
 
   <!-- Página Quem Somos -->
@@ -142,7 +218,7 @@
         <div class="titulo-box">
           <img src="img.pag/Logo.png" alt="Logo Academia" class="logo-treino" onclick="mostrarTreino()" style="cursor: pointer;">
           <div class="titulo-textos">
-            <h2 class="menu-title">Quem Somos</h2>
+            <h2 class="menu-title">Treino</h2>
             <span class="academia-nome">Academia Viva a Vida</span>
           </div>
         </div>
@@ -151,11 +227,12 @@
           <li class="menu-treino">
             Treino
             <ul class="submenu">
-              <li onclick="mostrarFicha()">Ficha</li>  <!-- Alterei para usar 'onclick' diretamente -->
+              <li><a href="#" onclick="mostrarFicha()">Ficha</a></li>  <!-- Alterei para usar 'onclick' diretamente -->
             </ul>
           </li>
-          
-          <li>Aulas</li>
+
+          <li><a href="#" onclick="mostrarAulas()">Aulas</a></li>
+          <li><a href="#" onclick="mostrarIndicadores()">Indicadores</a></li>
           <li><a href="#" onclick="mostrarQuemSomos()">Quem somos</a></li>
         </ul>
         <div class="usuario-box">
@@ -202,7 +279,110 @@
       </form>
     </main>
   </div>
+
+  <div id="aulas-page" class="page" style="display: none;">
+    <header class="header-treino">
+        <div class="header-treino">
+            <div class="titulo-box">
+                <img src="img.pag/Logo.png" alt="Logo Academia" class="logo-treino" onclick="mostrarTreino()" style="cursor: pointer;">
+                <div class="titulo-textos">
+                    <h2 class="menu-title">Treino</h2> <span class="academia-nome">Academia Viva a Vida</span>
+                </div>
+            </div>
+            <ul class="menu">
+                <li><a href="#" onclick="mostrarTreino()">Início</a></li>
+                <li class="menu-treino">
+                    Treino
+                    <ul class="submenu">
+                        <li><a href="#" onclick="mostrarFicha()">Ficha</a></li>
+                    </ul>
+                </li>
+                <li><a href="#" onclick="mostrarAulas()">Aulas</a></li>
+                <li><a href="#" onclick="mostrarIndicadores()">Indicadores</a></li>
+                <li><a href="#" onclick="mostrarQuemSomos()">Quem somos</a></li>
+            </ul>
+            <div class="usuario-box">
+                <span class="usuario-icone">👤</span>
+                <span class="usuario-nome">Olá, Raquel</span>
+                <button class="btn-sair" onclick="voltarParaLogin()">Sair</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="aulas-container">
+        <div class="aulas-cards">
+            <div class="aula-card">
+                <img src="img.pag/funcional.png" alt="Aula de Funcional">
+                <div class="aula-info">
+                    <h3>AULA DE FUNCIONAL</h3>
+                    <span>19 : 00</span>
+                </div>
+            </div>
+            <div class="aula-card">
+                <img src="img.pag/solo.jpeg" alt="Pilates Solo">
+                <div class="aula-info">
+                    <h3>PILATES SOLO</h3>
+                    <span>21 : 00</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="aulas-calendario">
+            <div class="calendario-header">
+                <span class="dia">03</span>
+                <span class="mes-ano">MAR 2025</span>
+            </div>
+            <div class="calendario-grid">
+                <span class="dia-semana">D</span>
+                <span class="dia-semana">S</span>
+                <span class="dia-semana">T</span>
+                <span class="dia-semana">Q</span>
+                <span class="dia-semana">Q</span>
+                <span class="dia-semana">S</span>
+                <span class="dia-semana">S</span>
+
+                <span class="dia-mes placeholder"></span>
+                <span class="dia-mes placeholder"></span>
+                <span class="dia-mes placeholder"></span>
+                <span class="dia-mes">1</span>
+                <span class="dia-mes">2</span>
+                <span class="dia-mes active-day">3</span>
+                <span class="dia-mes">4</span>
+                <span class="dia-mes">5</span>
+                <span class="dia-mes">6</span>
+                <span class="dia-mes">7</span>
+                <span class="dia-mes">8</span>
+                <span class="dia-mes">9</span>
+                <span class="dia-mes">10</span> 
+                <span class="dia-mes">11</span>
+                <span class="dia-mes">12</span>
+                <span class="dia-mes">13</span>
+                <span class="dia-mes">14</span>
+                <span class="dia-mes">15</span>
+                <span class="dia-mes">16</span>
+                <span class="dia-mes">17</span>
+                <span class="dia-mes">18</span>
+                <span class="dia-mes">19</span>
+                <span class="dia-mes">20</span>
+                <span class="dia-mes">21</span>
+                <span class="dia-mes">22</span>
+                <span class="dia-mes">23</span>
+                <span class="dia-mes">24</span>
+                <span class="dia-mes">25</span>
+                <span class="dia-mes">26</span>
+                <span class="dia-mes">27</span>
+                <span class="dia-mes">28</span>
+                <span class="dia-mes">29</span>
+                <span class="dia-mes">30</span>
+                <span class="dia-mes">31</span>
+                <span class="dia-mes placeholder"></span>
+                <span class="dia-mes placeholder"></span>
+            </div>
+        </div>
+    </main>
+</div>
   
-  <script src="js/app.js"></script>
+  
 </body>
+<script src="js/app.js"></script>
 </html>

@@ -14,10 +14,25 @@ body {
 /* Controle de páginas */
 .page {
   display: none;
-  height: 100vh;
+  
 }
 
 .page.active {
+  display: flex;
+  height: 100vh;
+}
+
+#login-page.active {
+  display: flex; /* ou block, o que for o correto pra seu layout */
+}
+
+/* Pro treino */
+#treino-page.active {
+  display: flex; /* ou block conforme seu layout */
+}
+
+/* Pra ficha */
+#ficha.active {
   display: flex;
 }
 
@@ -144,6 +159,7 @@ button:hover {
 #treino-page {
   flex-direction: column;
   width: 100%;
+  height: 100vh;
 }
 
 .usuario {
@@ -152,7 +168,7 @@ button:hover {
 
 .treino-dia {
   padding: 40px;
-  display: flex;
+  
   flex-direction: column;
   align-items: center;
   gap: 20px;
@@ -222,8 +238,8 @@ button:hover {
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  padding: 10px;
-  background: radial-gradient(circle at top right, rgba(0, 204, 255, 0.3), rgba(255, 0, 150, 0.3));
+  
+  background: radial-gradient(circle at top right, rgb(54, 215, 255), rgb(255, 115, 197));
   flex-wrap: wrap;
 }
 /* Título "Treino" + nome da academia (lado esquerdo) */
@@ -275,45 +291,163 @@ button:hover {
 /*PAGINA DE EXERCICIOS
 Estilos para a descrição dos exercícios */
 /* Estilos para a descrição dos exercícios */
+/* Estilos para a descrição dos exercícios (nova estrutura) */
 .descricao-exercicios {
-  display: none;
-  flex-direction: column;
-  align-items: center;
-  padding: 40px;
-  background-color: rgba(255, 255, 255, 0.8);
-  border-radius: 10px;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-  margin-top: 20px;
+    display: none; /* Controlado pelo JS */
+    flex-direction: column; /* Para empilhar o header e o conteúdo */
+    align-items: center; /* Centraliza o conteúdo horizontalmente */
+    width: 100%;
+    padding: 0; /* Remover padding padrão para o background-image */
+    overflow-y: auto;
 }
 
-.tabela-exercicios {
-  overflow-y: scroll;
-  max-height: 400px;
-  width: 100%;
-  max-width: 800px;
-  margin-top: 20px;
+/* Fundo com título para o topo da ficha */
+.ficha-header-bg {
+    background-image: url('../img.pag/treino-header-bg.jpg'); /* Crie esta imagem ou use uma similar */
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: 150px; /* Altura do banner */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative; /* Para posicionar o texto sobre a imagem */
+    margin-bottom: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
 
-.tabela-exercicios table {
-  width: 100%;
-  border-collapse: collapse;
+.ficha-titulo {
+    font-size: 3.5rem; /* Tamanho grande para o título da ficha */
+    color: #fff; /* Cor do texto */
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.7); /* Sombra para o texto */
+    z-index: 1; /* Garante que o texto fique acima da imagem */
+    font-weight: bold;
+    letter-spacing: 2px;
 }
 
-.tabela-exercicios th,
-.tabela-exercicios td {
-  padding: 10px;
-  border: 1px solid #ddd;
-  text-align: center;
+/* Container principal dos exercícios com scroll */
+.treino-dia-content {
+    background-color: rgba(255, 255, 255, 0.1); /* Fundo semi-transparente */
+    backdrop-filter: blur(5px); /* Efeito de blur no fundo */
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    width: 90%; /* Largura do container principal */
+    max-width: 800px;
+    padding: 30px;
+    height: 60vh; /* Altura fixa para permitir a rolagem */
+    overflow-y: auto; /* Habilita a rolagem vertical */
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-top: auto;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-.tabela-exercicios th {
-  background-color: #f1f1f1;
+
+
+.secao-titulo {
+    font-size: 2rem;
+    color: #555;
+    text-align: center;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #ff69b4; /* Linha de destaque */
+    padding-bottom: 10px;
 }
+
+.exercicios-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Espaço entre os cards de exercício */
+}
+
+.exercicio-card {
+    background-color: rgba(255, 255, 255, 0.8); /* Fundo do card do exercício */
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.exercicio-card h4 {
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 15px;
+    text-align: center;
+    border-bottom: 1px dashed #ccc;
+    padding-bottom: 10px;
+}
+
+.exercicio-card .series p {
+    display: flex;
+    justify-content: space-between; /* Alinha texto à esquerda, checkbox à direita */
+    align-items: center;
+    font-size: 1.1rem;
+    color: #444;
+    margin-bottom: 8px;
+}
+
+.exercicio-card .series p:last-child {
+    margin-bottom: 0;
+}
+
+.exercicio-card .series input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    accent-color: #ff69b4; /* Cor de destaque para o checkbox */
+}
+
+/* Estilizando a barra de rolagem */
+.treino-dia-content::-webkit-scrollbar {
+    width: 10px; /* Largura da barra de rolagem */
+}
+
+.treino-dia-content::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.1); /* Fundo da trilha da barra */
+    border-radius: 5px;
+}
+
+.treino-dia-content::-webkit-scrollbar-thumb {
+    background-color: #ff69b4; /* Cor do "polegar" da barra */
+    border-radius: 5px;
+    border: 2px solid rgba(255, 255, 255, 0.2); /* Borda para o polegar */
+}
+
+.treino-dia-content::-webkit-scrollbar-thumb:hover {
+    background-color: #e04a9e; /* Cor ao passar o mouse */
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .ficha-titulo {
+        font-size: 2.5rem;
+    }
+    .treino-dia-content {
+        width: 95%;
+        padding: 20px;
+    }
+    .exercicio-card h4 {
+        font-size: 1.3rem;
+    }
+    .exercicio-card .series p {
+        font-size: 1rem;
+    }
+}
+
+
 
 /* Estilo para exibir a descrição ao clicar no ícone de play */
 .descricao-exercicios.active {
-  display: flex;
+  display: block; /* Exibe a descrição quando ativo */
 }
+
+.descricao-exercicios-mmss.active {
+  display: block; /* Exibe a descrição quando ativo */
+}
+
+
+
 
 
 .menu-treino {
@@ -326,8 +460,8 @@ Estilos para a descrição dos exercícios */
   top: 100%;
   left: 0;
   background: radial-gradient(circle at top right, rgba(0, 204, 255, 0.3), rgba(255, 0, 150, 0.3));
-  border: 1px solid #ccc;
-  padding: 5px 0;
+  border: 2px solid #b6b6b6;
+  padding: 2px 0;
   list-style: none;
   z-index: 99;
   min-width: 60px;
@@ -338,11 +472,11 @@ Estilos para a descrição dos exercícios */
   padding: 2px 5px;
   cursor: pointer;
   color: #000; /* Texto preto para boa leitura */
-  font-weight: bold;
+  
 }
 
 .submenu li:hover {
-  background: rgba(255, 255, 255, 0.6);
+  background: radial-gradient(circle at top right, rgba(0, 204, 255, 0.3), rgba(255, 0, 150, 0.3));
 }
 
 /* Mostrar submenu ao passar o mouse */
@@ -350,14 +484,38 @@ Estilos para a descrição dos exercícios */
   display: block;
 }
 
+.menu .submenu a {
+  color: inherit;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.menu a,
+.menu .submenu a {
+  color: inherit;
+  text-decoration: none;
+  cursor: pointer;
+  display: inline-block;
+  padding: 0px 10px;
+}
+
+.menu a:hover,
+.menu .submenu a:hover {
+  text-decoration: none;
+  color: inherit;
+}
+
+
 
 /* Container que envolve os cards */
+/* Container que envolve os cards */
 #ficha {
-  display: flex; 
+  display: none;
   flex-direction: column; /* Organiza os filhos em uma coluna */
   align-items: center; /* Centraliza os cards horizontalmente */
   gap: 10px; /* Espaço entre os cards */
   width: 100%; /* Ocupa 100% da largura disponível */
+  padding: 20px; /* Adicionei um padding para melhor espaçamento */
 }
 
 /* Estilos dos cards */
@@ -375,16 +533,18 @@ Estilos para a descrição dos exercícios */
   justify-content: center;
   overflow: hidden;
   color: white;
-  font-family: 'Rubik 80s Fade', sans-serif;
+  font-family: 'Glacial Indifference', sans-serif; /* Usando a mesma fonte do body */
   font-size: 2rem;
   text-shadow: 2px 2px 5px rgba(0,0,0,0.8);
+  position: relative; /* Adicionado para posicionar o play-icon */
 }
 
-.play-icon{
-  margin-left: 90%;
-  top: 50%;
-  left: 50%;
-  transform: translate(-40%, 20%);
+/* Ícone de play dentro do card */
+.card-ficha .play-icon {
+  position: absolute; /* Posição absoluta em relação ao card-ficha */
+  right: 20px; /* Ajuste a posição para o lado direito */
+  bottom: 20px; /* Ajuste a posição para a parte inferior */
+  transform: none; /* Remove a transformação anterior */
   font-size: 30px;
   color: rgb(195, 195, 195);
   background: rgba(0, 0, 0, 0.5);
@@ -392,7 +552,6 @@ Estilos para a descrição dos exercícios */
   border-radius: 10px;
   cursor: pointer;
 }
-
 .quemsomos-container {
   display: flex;
   justify-content: space-between;
@@ -421,6 +580,7 @@ Estilos para a descrição dos exercícios */
   content: "✅ ";
   margin-right: 5px;
 }
+
 
 .form-box {
   flex: 1;
@@ -451,4 +611,147 @@ Estilos para a descrição dos exercícios */
   border: none;
   border-radius: 8px;
   cursor: pointer;
+}
+
+/* Página Aulas */
+#aulas-page {
+  flex-direction: column; /* Para empilhar o header e o main */
+  width: 100%;
+}
+
+.aulas-container {
+  display: flex;
+  justify-content: center;
+  gap: 40px; /* Espaço entre os cards de aula e o calendário */
+  padding: 80px;
+  flex-wrap: wrap; /* Permite que os itens quebrem linha em telas menores */
+  width: 100%;
+}
+
+.aulas-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  flex-grow: 1; /* Permite que os cards ocupem espaço flexível */
+  max-width: 600px; /* Limite de largura para os cards */
+}
+
+.aula-card {
+  background-color: #333; /* Fundo escuro para os cards */
+  border-radius: 10px;
+  overflow: hidden; /* Garante que a imagem não vaze */
+  display: flex;
+  align-items: center;
+  color: white;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  min-width: 300px; /* Largura mínima para o card em telas pequenas */
+  flex-wrap: wrap; /* Para que a imagem e info quebrem linha se necessário */
+}
+
+.aula-card img {
+  width: 300px; /* Largura fixa para a imagem */
+  height: 180px; /* Altura fixa para a imagem */
+  object-fit: cover; /* Garante que a imagem preencha o espaço sem distorcer */
+}
+
+.aula-info {
+  flex-grow: 1;
+  padding: 15px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end; /* Alinha o texto à direita */
+  text-align: right; /* Alinha o texto à direita */
+}
+
+.aula-info h3 {
+  margin: 0;
+  font-size: 1.5rem;
+  color: #FFF; /* Cor do título da aula */
+  text-transform: uppercase;
+}
+
+.aula-info span {
+  font-size: 1.2rem;
+  color: #ff69b4; /* Cor de destaque para o horário */
+  font-weight: bold;
+}
+
+/* Calendário */
+.aulas-calendario {
+  background-color: radial-gradient(circle at top right, rgba(0, 204, 255, 0.3), rgba(255, 0, 150, 0.3));
+  border-radius: 10px;
+  padding: 20px;
+  color: rgb(162, 21, 250);
+  width: 100%;
+  max-width: 350px; /* Largura máxima para o calendário */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.calendario-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 20px;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.calendario-header .dia {
+  font-size: 3rem;
+  margin-right: 10px;
+}
+
+.calendario-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr); /* 7 colunas para os dias da semana */
+  gap: 10px;
+  text-align: center;
+}
+
+.dia-semana {
+  font-weight: bold;
+  color: rgba(255, 255, 255, 0.7);
+  padding-bottom: 5px;
+}
+
+.dia-mes {
+  padding: 8px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.dia-mes:hover:not(.placeholder) {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.dia-mes.active-day {
+  background-color: #ff69b4; /* Cor de destaque para o dia ativo */
+  font-weight: bold;
+  box-shadow: 0 0 8px rgba(255, 105, 180, 0.5); /* Sombra para o dia ativo */
+}
+
+.dia-mes.placeholder {
+  visibility: hidden; /* Esconde os dias vazios no início do mês */
+}
+
+/* Responsividade básica para o card da aula */
+@media (max-width: 768px) {
+  .aula-card {
+      flex-direction: column; /* Empilha imagem e info em telas menores */
+      align-items: center;
+  }
+  .aula-card img {
+      width: 100%; /* Imagem ocupa 100% da largura */
+      height: auto;
+  }
+  .aula-info {
+      text-align: center; /* Centraliza o texto */
+      align-items: center;
+  }
+  .aulas-container {
+      flex-direction: column;
+      align-items: center;
+  }
 }
